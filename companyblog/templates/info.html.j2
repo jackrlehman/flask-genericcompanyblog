@@ -1,0 +1,14 @@
+{% extends "base.html.j2" %}
+{% block content %}
+    <script>
+        $(document).ready(function () {
+        $(".nav a").removeClass("nav-link active");
+        $(".nav a").addClass("nav-link");
+        $('#about').addClass("nav-link active");
+        });
+    </script>
+    <div class="jumbotron">
+        <h1>Info about our company</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe sit, blanditiis magni, esse voluptatibus quas vitae, est aperiam officia alias voluptatum. Omnis natus voluptatum laborum, itaque officia culpa libero dolores.</p>
+    </div>
+{% endblock content %}
