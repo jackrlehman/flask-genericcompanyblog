@@ -32,3 +32,4 @@ app.register_blueprint(core)
 app.register_blueprint(users)
 app.register_blueprint(error_pages)
 app.register_blueprint(blog_posts)
+
