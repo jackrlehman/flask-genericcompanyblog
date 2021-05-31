@@ -7,11 +7,12 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'mysecret'
+app.config['SECRET_KEY'] = 'insecurekey'
 
 ## DATABASE ##
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:xxxx@localhost:5432/companyblog"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+#app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:xxxx@localhost:5432/companyblog"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
