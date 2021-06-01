@@ -9,7 +9,3 @@ def index():
     blog_posts = BlogPost.query.order_by(BlogPost.date.desc()).paginate(page=page, per_page=10)
     return render_template('index.html.j2',blog_posts=blog_posts)
     
-
-@core.route('/info')
-def info():
-    return render_template('info.html.j2')

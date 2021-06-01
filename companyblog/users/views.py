@@ -12,18 +12,21 @@ users = Blueprint('users',__name__)
 #register
 @users.route('/register',methods=['GET','POST'])
 def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(email=form.email.data,
-                    username=form.username.data,
-                    password=form.password.data)
-        
-        db.session.add(user)
-        db.session.commit()
-        flash('Your account has been registered, please login.')
+    if User.query.count() == 0:
+        form = RegistrationForm()
+        if form.validate_on_submit():
+            user = User(email=form.email.data,
+                        username=form.username.data,
+                        password=form.password.data)
+            
+            db.session.add(user)
+            db.session.commit()
+            flash('Your account has been registered, please login.')
+            return redirect(url_for('users.login'))
+        return render_template('register.html.j2',form=form)
+    else:
+        flash("This blog is not accepting users")
         return redirect(url_for('users.login'))
-
-    return render_template('register.html.j2',form=form)
 
 #login
 @users.route('/login',methods=['GET','POST'])
