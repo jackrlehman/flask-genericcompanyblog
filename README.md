@@ -1,6 +1,6 @@
 # Flask Generic Company Blog
 
-Originally created for educational course, expanded beyond asignment for UI and minor functionality. View hosted version @ jacklehman.com.
+Originally created for educational course, expanded beyond asignment for UI and minor functionality. View hosted version @ jackleh.com.
 
 Personal vs Master Branch:
 
